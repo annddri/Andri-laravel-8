@@ -1,0 +1,29 @@
+<?php
+
+namespace App\Models;
+
+class Post
+{
+    private static $blog_posts = [
+        [
+            'judul' => 'Judul Pertama',
+            'slug' => 'judul-pertama',
+            'isi' => 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolorem voluptatum rem vel accusantium voluptas, sequi, cupiditate quae, aperiam eum reiciendis distinctio ullam culpa molestiae odio? Dolore non eveniet eaque exercitationem fugit molestias id quibusdam nemo omnis pariatur iste dignissimos esse ipsum, sint distinctio quae. Animi deserunt provident consectetur a dicta!'
+        ],
+        [
+            'judul' => 'Judul Kedua',
+            'slug' => 'judul-kedua',
+            'isi' => 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolorem voluptatum rem vel accusantium voluptas, sequi, cupiditate quae, aperiam eum reiciendis distinctio ullam culpa molestiae odio? Dolore non eveniet eaque exercitationem fugit molestias id quibusdam nemo omnis pariatur iste dignissimos esse ipsum, sint distinctio quae. Animi deserunt provident consectetur a dicta! Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nemo voluptatibus itaque quos quo culpa molestias eligendi dignissimos ad, delectus exercitationem error veniam amet! Ratione sed quod deleniti ad architecto tempore?'
+        ]
+        ];
+    
+    public static function all(){
+        return collect(self::$blog_posts);
+    }
+
+    public static function get($slug){
+        $posts = static::all();
+        return $posts->firstWhere('slug', $slug);
+    }
+}
+
