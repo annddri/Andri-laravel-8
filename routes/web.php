@@ -38,3 +38,10 @@ Route::get('/category/{category:slug}', function(\App\Models\Category $category)
     ];
     return view('category', $data);
 });
+Route::get('/authors/{author:username}', function(\App\Models\User $author){
+    $data = [
+        'title' => 'Authors',
+        'posts' => $author->posts
+    ];
+    return view('posts', $data);
+});
