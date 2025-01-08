@@ -7,7 +7,8 @@
 <p>{{$post->excerpt}}</p>
 @endforeach
 
-<a href="/posts">Kembali ke halaman Blog</a>
+<a href="/categories">Masuk ke categories</a>
+<a href="/posts">Kembali ke halaman blog</a>
 
 @endsection
 
