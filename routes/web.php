@@ -25,6 +25,7 @@ Route::get('/posts/{post:slug}', [PostController::class, 'show']);
 Route::get('/categories', function(){
     $data = [
         'title' => 'Posts Categories',
+        'active' => "categories",
         'categories' => Category::all()
     ];
     return view('categories', $data);
@@ -33,6 +34,7 @@ Route::get('/categories', function(){
 Route::get('/category/{category:slug}', function(\App\Models\Category $category){
     $data = [
         'title' => "Posts bg Category : " . $category->name,
+        'active' => "categories",
         'posts' => $category->posts->load('category', 'author'),
     ];
     return view('posts', $data);

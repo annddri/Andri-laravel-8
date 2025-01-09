@@ -16,7 +16,8 @@ class PostController extends Controller
     {
         $data = [
             "title" => "All Posts",
-            "posts" => Post::with('category', 'author')->latest()->get()
+            "active" => "posts",
+            "posts" => Post::latest()->get()
         ];
         return view('posts', $data);
         
@@ -50,7 +51,7 @@ class PostController extends Controller
     //  * @return \Illuminate\Http\Response
      */
     public function show(Post $post){
-        return view('post', [ "title" => "Post",
+        return view('post', [ "title" => "Post", "active" => "posts",
             "posts" => $post]);
     }
 
