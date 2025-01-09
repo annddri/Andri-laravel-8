@@ -32,16 +32,15 @@ Route::get('/categories', function(){
 
 Route::get('/category/{category:slug}', function(\App\Models\Category $category){
     $data = [
-        'title' => $category->name,
-        'posts' => $category->posts,
-        'category' => $category->name
+        'title' => "Posts bg Category : " . $category->name,
+        'posts' => $category->posts->load('category', 'author'),
     ];
-    return view('category', $data);
+    return view('posts', $data);
 });
 Route::get('/authors/{author:username}', function(\App\Models\User $author){
     $data = [
-        'title' => 'Authors',
-        'posts' => $author->posts
+        'title' => 'Posts by Authors : ' . $author->name,
+        'posts' => $author->posts->load('category', 'author')
     ];
     return view('posts', $data);
 });

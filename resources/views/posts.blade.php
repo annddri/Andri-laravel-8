@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('container')
-<h1 class="text-center">Halaman Posts Blogs</h1>
+<h1 class="text-center">{{$title}}</h1>
 
 @foreach ($posts as $post)
 <article class="border-bottom pb-4 text-decoration-none">
