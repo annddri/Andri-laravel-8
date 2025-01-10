@@ -30,19 +30,3 @@ Route::get('/categories', function(){
     ];
     return view('categories', $data);
 });
-
-Route::get('/category/{category:slug}', function(\App\Models\Category $category){
-    $data = [
-        'title' => "Posts bg Category : " . $category->name,
-        'active' => "categories",
-        'posts' => $category->posts->load('category', 'author'),
-    ];
-    return view('posts', $data);
-});
-Route::get('/authors/{author:username}', function(\App\Models\User $author){
-    $data = [
-        'title' => 'Posts by Authors : ' . $author->name,
-        'posts' => $author->posts->load('category', 'author')
-    ];
-    return view('posts', $data);
-});

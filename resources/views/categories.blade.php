@@ -7,11 +7,11 @@
     <div class="row">
     @foreach ($categories as $category)
     <div class="col-md-4">
-        <a href="{{$category->slug}}">
+        <a href="/posts?category={{$category->slug}}">
             <div class="card text-bg-dark border border-0">
                 <img src="img/{{$category->slug}}.jpg" class="card-img img-fluid" style="height: 250px;">
                 <div class="card-img-overlay d-flex align-items-center p-0 m-0">
-                    <h5 class="card-title flex-fill p-2 mt-1 fs-3" style="background-color: rgba(0,0,0,0.7);"><a href="/category/{{ $category->slug }}" class="text-decoration-none text-white"><p>{{$category->name}}</a></h2></>
+                    <h5 class="card-title flex-fill p-2 mt-1 fs-3" style="background-color: rgba(0,0,0,0.7);"><a href="/posts?category={{ $category->slug }}" class="text-decoration-none text-white"><p>{{$category->name}}</a></h2></>
                 </div>
             </div>
         </a>
