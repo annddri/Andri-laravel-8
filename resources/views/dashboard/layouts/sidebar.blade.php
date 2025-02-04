@@ -7,15 +7,15 @@
         <div class="offcanvas-body d-md-flex flex-column p-0 pt-lg-3 overflow-y-auto">
           <ul class="nav flex-column">
             <li class="nav-item">
-              <a class="nav-link d-flex align-items-center gap-2 active" aria-current="page" href="#">
-                <svg class="bi"><use xlink:href="#house-fill"/></svg>
+              <a class="nav-link d-flex align-items-center gap-2 {{Request::is('dashboard') ? 'active' : ''}}" aria-current="page" href="/dashboard">
+                <i data-feather="home"></i>
                 Dashboard
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link d-flex align-items-center gap-2" href="#">
-                <svg class="bi"><use xlink:href="#file-earmark"/></svg>
-                Orders
+              <a class="nav-link d-flex align-items-center gap-2 {{Request::is('dashboard/posts') ? 'active' : ''}}" href="/dashboard/posts">
+              <i data-feather="file-text"></i>
+                My Posts
               </a>
             </li>
           </ul>
@@ -27,7 +27,8 @@
                 
                 <form action="/logout" method="post">
               @csrf
-              <button type="submit" class="dropdown-item nav-link d-flex align-items-center">Log out</button>
+              <!-- <i data-feather="log-out"></i> -->
+              <button type="submit" class="dropdown-item nav-link d-flex align-items-center"><i data-feather="log-out"></i>  Log out</button>
             </form>
             </li>
           </ul>
