@@ -15,7 +15,6 @@
         <article class="my-3">
             <p>{!!$post->body!!}</p>
         </article>
-        <a href="/dashboard/posts">Kembali ke halaman blog</a>
         </div>
     </div>
 </div>
